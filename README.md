@@ -12,7 +12,7 @@
 - password :string
 - member :string
 - profile :text
-- works :text
+- works :string
 
 
 # Prototype
@@ -40,7 +40,7 @@
 - created_at :timestamp
 - updated_at :timestamp
 - prototype_id :integer
-- image_url :string
+- content :string
 - status :integer
 > 0 :main, 1 :sub
 
