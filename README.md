@@ -1,71 +1,71 @@
-#User
+# User
 
-###association
-`has_many :prototypes, comments, like`
+### association
+`has_many :prototypes, :comments, :likes`
 
-###table
--id :integer
--created_at :timestamp
--updated_at :timestamp
--username :string
--email :string
--password :string
--member :string
--profile :text
--works :text
+## table
+- id :integer
+- created_at :timestamp
+- updated_at :timestamp
+- username :string
+- email :string
+- password :string
+- member :string
+- profile :text
+- works :text
 
 
-#Prototype
+# Prototype
 
-###association
-`has_many :photos, comments, like`
+## association
+`has_many :photos, :comments, :likes`
 `belongs_to :user`
 
-###table
--id :integer
--created_at :timestamp
--updated_at :timestamp
--user_id :integer
--title :string
--catch :string
--concept :text
+## table
+- id :integer
+- created_at :timestamp
+- updated_at :timestamp
+- user_id :integer
+- title :string
+- catch :string
+- concept :text
 
-#Photo
+# Photo
 
-###association
+## association
 `belongs_to :prototype`
 
-###table
--id :integer
--created_at :timestamp
--updated_at :timestamp
--prototype_id :integer
--imageurl: string
--status :integer
+## table
+- id :integer
+- created_at :timestamp
+- updated_at :timestamp
+- prototype_id :integer
+- image_url :string
+- status :integer
 > 0 :main, 1 :sub
 
 
-#Comment
+# Comment
 
-###association
+## association
+`belongs_to :user, :prototype`
+
+## table
+- id :integer
+- created_at :timestamp
+- updated_at :timestamp
+- user_id :integer
+- prototype_id :integer
+- content :text
+
+
+# Like
+### association
 `belongs_to :user, prototype`
 
-###table
--id :integer
--created_at :timestamp
--updated_at :timestamp
--user_id :integer
--prototype_id :integer
--content: text
-
-
-#Like
-###association
-`belongs_to :user, prototype`
-
-###table
--id :integer
--created_at :timestamp
--updated_at :timestamp
--user_id :integer
--prototype_id :integer
+## table
+- id :integer
+- created_at :timestamp
+- updated_at :timestamp
+- user_id :integer
+- prototype_id :integer
