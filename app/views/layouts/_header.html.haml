@@ -11,7 +11,6 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           .btn.btn-primary.navbar-btn
-            /%a{href: "/login"}
             = link_to "Get Started", new_user_session_path, method: :get
       //login
       %ul.nav.navbar-nav.navbar-right
@@ -23,7 +22,6 @@
             %li
               %a{href: "#"} Profile Edit
             %li
-              /%a{href: "#"} Logout
               = link_to "Logout", destroy_user_session_path, method: :delete
         %li
           .btn.btn-primary.navbar-btn
