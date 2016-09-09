@@ -11,8 +11,8 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           .btn.btn-primary.navbar-btn
-            %a{href: "/login"}
-              Get Started
+            /%a{href: "/login"}
+            = link_to "Get Started", new_user_session_path, method: :get
       //login
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
