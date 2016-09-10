@@ -17,13 +17,12 @@
               %li
                 = link_to "My Page", user_path(current_user.id), method: :get
               %li
-                = link_to "Profile Edit", edit_user_path(current_user.id), method: :get
+                = link_to "Profile Edit", edit_user_path(current_user), method: :get
               %li
                 = link_to "Logout", destroy_user_session_path, method: :delete
           %li
             .btn.btn-primary.navbar-btn
-              %a{href: "/proto/new"}
-                New Proto
+              = link_to "New Proto",new_prototype_path, method: :get
       - else
         %ul.nav.navbar-nav.navbar-right
           %li
