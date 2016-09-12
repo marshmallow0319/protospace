@@ -13,8 +13,10 @@ class UsersController < ApplicationController
   def update
     if @user.update(update_params)
       bypass_sign_in @user
+      flash[:notice] = "編集が成功しました"
       redirect_to root_path
     else
+      flash[:notice] = "入力内容が正しくありません"
       render :edit
     end
   end
