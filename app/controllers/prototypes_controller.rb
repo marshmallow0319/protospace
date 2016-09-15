@@ -9,7 +9,13 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.create(prototype_params)
-    redirect_to root_path
+    if @prototype.save
+      flash[:notice] = "投稿が成功しました"
+      redirect_to root_path
+    else
+      flash[:notice] = "入力内容が正しくありません"
+      render :new
+    end
   end
 
   def show
