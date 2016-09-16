@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160915082423) do
     t.string   "member",                 limit: 255
     t.text     "profile",                limit: 65535
     t.string   "works",                  limit: 255
+    t.text     "avatar",                 limit: 65535
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
