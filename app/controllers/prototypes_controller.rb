@@ -21,6 +21,20 @@ class PrototypesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def destroy
+    @prototype = Prototype.find(params[:id])
+    if @prototype.destroy
+      flash[:notice] = "削除しました"
+      redirect_to root_path
+    else
+      flash[:notice] = "入力内容が正しくありません"
+      render :show
+    end
+  end
+
   private
 
   def prototype_params
