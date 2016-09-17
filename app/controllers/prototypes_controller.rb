@@ -1,4 +1,6 @@
 class PrototypesController < ApplicationController
+  before_action :set_prototype, only: [:edit, :show, :update, :destroy]
+
   def index
   end
 
@@ -24,8 +26,17 @@ class PrototypesController < ApplicationController
   def edit
   end
 
+  def update
+    if @prototype.update(prototype_params)
+      flash[:notice] = "編集が成功しました"
+      redirect_to root_path
+    else
+      flash[:notice] = "入力内容が正しくありません"
+      render :edit
+    end
+  end
+
   def destroy
-    @prototype = Prototype.find(params[:id])
     if @prototype.destroy
       flash[:notice] = "削除しました"
       redirect_to root_path
@@ -36,6 +47,11 @@ class PrototypesController < ApplicationController
   end
 
   private
+
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
+  end
+
 
   def prototype_params
     params.require(:prototype).permit(:id, :title, :catch, :concept, photos_attributes: [:id, :prototype_id, :content, :status]).merge(user_id: current_user.id)
