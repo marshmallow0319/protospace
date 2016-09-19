@@ -7,7 +7,7 @@
       .col-md-12
         .cover-image-upload
           = image_tag @prototype.photos.main.first.content, style: "width: 100%; height: 500px;"
-          = f.fields_for :photos do |photo|
+          = f.fields_for :photos, @prototype.photos.main.first.content do |photo|
             = photo.file_field :content
             = photo.hidden_field :status, value: :main
       .col-md-12
@@ -15,13 +15,13 @@
           %li.list-group-item.col-md-4
             .image-upload
               = image_tag @prototype.photos.sub.first.content, style: "width: 100%; height: 200px;"
-              = f.fields_for :photos do |photo|
+              = f.fields_for :photos, @prototype.photos.sub.first.content do |photo|
                 = photo.file_field :content
                 = photo.hidden_field :status, value: :sub
           %li.list-group-item.col-md-4
             .image-upload
               = image_tag @prototype.photos.sub.second.content, style: "width: 100%; height: 200px;"
-              = f.fields_for :photos do |photo|
+              = f.fields_for :photos, @prototype.photos.sub.second.content do |photo|
                 = photo.file_field :content
                 = photo.hidden_field :status, value: :sub
           %li.list-group-item.col-md-4

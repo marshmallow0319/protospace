@@ -6,9 +6,9 @@
         .user-name_image.row
           .user-name.col-md-10
             = f.text_field :username, autofocus: true, placeholder: "Username", value: current_user.username
-          .user-image.col-md-2{style: 'background-image: url(http://泣ける動画.com/wp-content/uploads/2015/01/t0205-01.jpg);'}
+          = image_tag current_user.avatar, class: "user-image col-md-2" do
             %button.btn.btn-primary Change image
-            %input{type: "file"}/
+            = f.file_field :avatar
         = f.email_field :email, autofocus: true, placeholder: "E-Mail", class: "user-email", value: current_user.email
         = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "user-password"
       .col-md-12
