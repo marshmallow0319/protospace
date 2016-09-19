@@ -6,19 +6,22 @@
     .row
       .col-md-12
         .cover-image-upload
-          = f.fields_for :photos do |photo|
+          = image_tag @prototype.photos.main.first.content, style: "width: 100%; height: 500px;"
+          = f.fields_for :photos, @prototype.photos.main.first do |photo|
             = photo.file_field :content
             = photo.hidden_field :status, value: :main
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
             .image-upload
-              = f.fields_for :photos do |photo|
+              = image_tag @prototype.photos.sub.first.content, style: "width: 100%; height: 200px;" if @prototype.photos.sub.first
+              = f.fields_for :photos, @prototype.photos.sub.first do |photo|
                 = photo.file_field :content
                 = photo.hidden_field :status, value: :sub
           %li.list-group-item.col-md-4
             .image-upload
-              = f.fields_for :photos do |photo|
+              = image_tag @prototype.photos.sub.second.content, style: "width: 100%; height: 200px;" if @prototype.photos.sub.second
+              = f.fields_for :photos, @prototype.photos.second do |photo|
                 = photo.file_field :content
                 = photo.hidden_field :status, value: :sub
           %li.list-group-item.col-md-4
