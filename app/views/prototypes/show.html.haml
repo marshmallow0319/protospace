@@ -12,10 +12,7 @@
             = link_to "by #{@prototype.user.username}", user_path(@prototype.user)
             %span.degree #{@prototype.user.profile} #{@prototype.user.member}
     .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+      = render "prototypes/like"
   .row
     .col-md-9
       = image_tag @prototype.photos.main.first.content, class: 'img-responsive'
