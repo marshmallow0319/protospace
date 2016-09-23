@@ -29,6 +29,7 @@
 - title :string
 - catch :string
 - concept :text
+- likes_count :integer
 - comments_count :integer
 
 # Photo
