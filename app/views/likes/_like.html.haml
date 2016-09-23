@@ -12,6 +12,10 @@
         Like
         = prototype.likes.count
 - else
-  = image_tag("icon_heart.svg")
-  %span
-    = prototype.likes.count
+  %button.btn.btn-default.increment-botton
+    = image_tag("icon_heart.svg")
+    %span.num#like-sum
+      Like
+      = prototype.likes.count
+
+
