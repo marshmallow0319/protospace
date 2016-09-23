@@ -1,2 +1,3 @@
 console.log("くりえいと");
-$("#like-button").html("#{ j(render partial: 'prototypes/like', locals: { prototype: @prototype, likes: @likes, like: @like })}");
+$("#like-button").html("#{ j(render partial: 'likes/like', locals: { prototype: @prototype, likes: @likes, like: @like })}");
+
