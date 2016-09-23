@@ -11,8 +11,8 @@
           .proto-user
             = link_to "by #{@prototype.user.username}", user_path(@prototype.user)
             %span.degree #{@prototype.user.profile} #{@prototype.user.member}
-    .col-md-6.text-right
-      = render "prototypes/like"
+    .col-md-6.text-right#like_button
+      = render partial: 'prototypes/like', locals: { prototype: @prototype, likes: @likes, like: @like}
   .row
     .col-md-9
       = image_tag @prototype.photos.main.first.content, class: 'img-responsive'
