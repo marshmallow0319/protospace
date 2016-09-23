@@ -5,8 +5,8 @@ class Prototype < ActiveRecord::Base
   accepts_nested_attributes_for :photos, reject_if: proc { |attributes| attributes['content'].blank? }
   validates :title, :catch, :concept, presence: true
 
-  def like_user(user_id)
-   likes.find_by(user_id: user_id)
+  def liked_user?(user)
+   likes.find_by(user_id: user)
   end
-  
+
 end
