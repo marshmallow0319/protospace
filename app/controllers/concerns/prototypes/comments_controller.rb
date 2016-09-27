@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Prototypes::CommentsController < ApplicationController
   def create
     Comment.create(comment_params)
     @comment = Comment.new
