@@ -3,18 +3,18 @@
     Comments
     %span.num (#{prototype.comments.count})
   .col-md-8
-    - prototype.comments.each do |c|
+    - prototype.comments.each do |comment|
       .media
         .media-left
-          = link_to user_path(c.user) do
-            = image_tag c.user.avatar, alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", style: "width: 64px; height: 64px;", class: "media-object"
+          = link_to user_path(comment.user) do
+            = image_tag comment.user.avatar, alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", style: "width: 64px; height: 64px;", class: "media-object"
         .media-body
           %h4#top-aligned-media.media-heading
-            = c.user.username
+            = comment.user.username
             %a.anchorjs-link{href: "#top-aligned-media"}
               %span.anchorjs-icon
           %p
-            = c.content
+            = comment.content
     - if user_signed_in?
       = form_for( [prototype, comment], html: {class: "form-inline"}, remote: true ) do |f|
         %h4 Write a comment
