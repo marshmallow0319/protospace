@@ -1,0 +1,25 @@
+.row.proto-comments
+  %h4.col-md-12
+    Comments
+    %span.num (#{prototype.comments.count})
+  .col-md-8
+    - prototype.comments.each do |comment|
+      .media
+        .media-left
+          = link_to user_path(comment.user) do
+            = image_tag comment.user.avatar, alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", style: "width: 64px; height: 64px;", class: "media-object"
+        .media-body
+          %h4#top-aligned-media.media-heading
+            = comment.user.username
+            %a.anchorjs-link{href: "#top-aligned-media"}
+              %span.anchorjs-icon
+          %p
+            = comment.content
+    - if user_signed_in?
+      = form_for( [prototype, comment], html: {class: "form-inline"}, remote: true ) do |f|
+        %h4 Write a comment
+        .row
+          .form-group.col-md-10
+            = f.text_area :content, placeholder: "Your comments", rows: "3", class: "form-control"
+          .form-group.col-md-2
+            = f.submit "Comment", class: "button btn btn-primary"
