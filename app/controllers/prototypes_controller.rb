@@ -22,8 +22,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @like = @prototype.likes(params[:id])
     @likes = @prototype.likes_count
+    @comment = Comment.new
+    @comments = @prototype.comments_count
   end
 
   def edit
