@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:edit, :show, :update, :destroy]
 
   def index
-    @prototype = Prototype.includes(:photos).order("created_at ASC").page(params[:page]).per(12)
+    @prototype = Prototype.includes(:photos).order("likes_count DESC").page(params[:page]).per(12)
   end
 
   def new
@@ -22,6 +22,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @like = @prototype.likes(params[:id])
     @likes = @prototype.likes_count
     @comment = Comment.new
     @comments = @prototype.comments_count
