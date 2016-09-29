@@ -13,7 +13,7 @@
             %span.degree #{@prototype.user.profile} #{@prototype.user.member}
     .col-md-6.text-right
       #like-button
-        = render partial: 'likes/like', locals: { prototype: @prototype, likes: @likes, like: @like}
+        = render partial: 'prototypes/likes/like', locals: { prototype: @prototype, likes: @likes, like: @like}
   .row
     .col-md-9
       = image_tag @prototype.photos.main.first.content, class: 'img-responsive'
@@ -39,4 +39,4 @@
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
   #comments
-    = render partial: 'comments/comment', locals: { prototype: @prototype, comments: @comments, comment: @comment}
+    = render partial: 'prototypes/comments/comment', locals: { prototype: @prototype, comments: @comments, comment: @comment}
