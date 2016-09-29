@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy], module: 'prototypes'
     resources :comments, only: :create, module: 'prototypes'
   end
+  resources :tags, only: [:index, :show, :update]
 end
