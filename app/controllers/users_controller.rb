@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @prototypes = @user.prototypes.includes(:photos).order("created_at DESC").page(params[:page]).per(8)
   end
 
   def update
