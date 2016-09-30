@@ -34,9 +34,8 @@
     .col-md-3
       %h4 Tag List
       %ul.proto-tag-list.list-inline
-        %li
-          %a{href: "#", class: "btn btn-default"} iPad
-        %li
-          %a{href: "#", class: "btn btn-default"} wireframe
+        - @prototype.tag.each do |pt|
+          %li
+            =link_to pt.name, tag_path(pt.id), class: "btn btn-default"
   #comments
     = render partial: 'prototypes/comments/comment', locals: { prototype: @prototype, comments: @comments, comment: @comment}

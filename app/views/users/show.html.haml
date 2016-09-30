@@ -46,9 +46,8 @@
                 .proto-posted
                   = p.created_at.strftime("%b %d")
               %ul.proto-tag-list.list-inline
-                %li
-                  = link_to "iPad", '', class: 'btn btn-default'
-                %li
-                  = link_to "wireframe", '', class: 'btn btn-default'
+                - p.tag.each do |tag|
+                  %li
+                    = link_to "#{tag.name}", 'tag_path(tag.id)', class: 'btn btn-default'
 .text-center
   = paginate @prototypes
