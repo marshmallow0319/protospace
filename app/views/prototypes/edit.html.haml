@@ -36,10 +36,10 @@
         %h4 Tag List
         .row
           .col-md-3
-            %input{type: "text", placeholder: "Web Design"}/
+            = text_field_tag "prototype[tag][]", "", placeholder: "Web Design", value: @prototype.tag.first
           .col-md-3
-            %input{type: "text", placeholder: "UI"}/
+            = text_field_tag "prototype[tag][]", "", placeholder: "UI", value: @prototype.tag.second
           .col-md-3
-            %input{type: "text", placeholder: "Application"}/
+            = text_field_tag "prototype[tag][]", "", placeholder: "Application", value: @prototype.tag.third
     .row.text-center.proto-btn
       = f.submit "Publish", class: "btn btn-lg btn-primary btn-block"
