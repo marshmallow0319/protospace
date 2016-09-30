@@ -24,29 +24,29 @@
               = @user.works
 .container.proto-list
   .row
-    - @prototypes.each do |p|
+    - @prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .dropdown.drop_menu_location
           = button_tag type: 'button', "aria-expanded": "true", "data-toggle": "dropdown", class: "btn btn-default dropdown-toggle", id: "dropdownMenu" do
             Action
           %ul.dropdown-menu{"aria-labelledby": "dropdownMenu1"}
             %li
-              = link_to "Delete", prototype_path(p), :method => :delete
+              = link_to "Delete", prototype_path(prototype), :method => :delete
             %li
-              = link_to "Edit", edit_prototype_path(p)
+              = link_to "Edit", edit_prototype_path(prototype)
         .thumbnail
-          = link_to prototype_path(p.id) do
-            = image_tag p.photos.main.first.content
+          = link_to prototype_path(prototype.id) do
+            = image_tag prototype.photos.main.first.content
             .caption
               %h3
-                = p.title
+                = prototype.title
               .proto-meta
                 .proto-user
                   = link_to "by #{@user.username}", user_path(@user.id)
                 .proto-posted
-                  = p.created_at.strftime("%b %d")
+                  = prototype.created_at.strftime("%b %d")
               %ul.proto-tag-list.list-inline
-                - p.tag.each do |tag|
+                - prototype.tags.each do |tag|
                   %li
                     = link_to "#{tag.name}", 'tag_path(tag.id)', class: 'btn btn-default'
 .text-center

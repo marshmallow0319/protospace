@@ -27,8 +27,8 @@
                 .proto-posted
                   = p.created_at.strftime("%b %d")
               %ul.proto-tag-list.list-inline
-                - p.tag.each do |pt|
+                - p.tags.each do |prototypetag|
                   %li
-                    =link_to pt.name, tag_path(pt.id), class: "btn btn-default"
+                    =link_to prototypetag.name, tag_path(prototypetag.id), class: "btn btn-default"
 .text-center
   = paginate @prototype
