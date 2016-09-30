@@ -1,20 +1,10 @@
 .container
   .row
-    .col-sm-4.col-sm-3
-      %a.tag.thumbnail{href: "/tags/web"}
-        .tag-name
-          web
-        .tag-project
-          1 project
-    .col-sm-4.col-sm-3
-      %a.tag.thumbnail{href: "/tags/ios"}
-        .tag-name
-          iOS
-        .tag-project
-          1 project
-    .col-sm-4.col-sm-3
-      %a.tag.thumbnail{href: "/tags/design"}
-        .tag-name
-          Design
-        .tag-project
-          1 project
+    - @tags.each do |tag|
+      .col-sm-4.col-sm-3
+        = link_to tag_path(tag.id), class: "tag thumbnail" do
+          .tag-name
+            = tag.name
+          .tag-project
+            = "#{tag.taggings_count} project"
+
