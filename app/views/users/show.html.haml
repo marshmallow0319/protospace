@@ -26,7 +26,7 @@
   .row
     - @prototypes.each do |p|
       .col-sm-4.col-md-3.proto-content
-        .dropdown.drop_menu_location.open
+        .dropdown.drop_menu_location
           = button_tag type: 'button', "aria-expanded": "true", "data-toggle": "dropdown", class: "btn btn-default dropdown-toggle", id: "dropdownMenu" do
             Action
           %ul.dropdown-menu{"aria-labelledby": "dropdownMenu1"}
