@@ -10,7 +10,7 @@
           = link_to "Popular PROTO", root_path
         %li{class: active?("prototypes/newest"), role: "presentation"}
           = link_to "Newest PROTO", prototypes_newest_index_path
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+      = link_to "View Tags", tags_path, type: 'button', class: "btn btn-default col-lg-1"
 .container.proto-list
   .row
     - @prototype.each do |p|
@@ -27,9 +27,8 @@
                 .proto-posted
                   = p.created_at.strftime("%b %d")
               %ul.proto-tag-list.list-inline
-                %li
-                  = link_to "iPad", "#", class: "btn btn-default"
-                %li
-                  = link_to "wireframe", "#", class: "btn btn-default"
+                - p.tags.each do |prototypetag|
+                  %li
+                    =link_to prototypetag.name, tag_path(prototypetag.id), class: "btn btn-default"
 .text-center
   = paginate @prototype

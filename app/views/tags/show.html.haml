@@ -1,0 +1,18 @@
+.container
+  .row
+    .tag-header
+      %span
+        = "# #{@tag.name}"
+    - @prototypes.each do |p|
+      .col-sm-4.col-md-3.proto-content
+        .thumbnail
+          = link_to prototype_path(p) do
+            = image_tag p.photos.main.first.content
+          .caption
+            %h3
+              = p.title
+            .proto-meta
+              .proto-user
+                = link_to "by #{p.user.username}", user_path(p.user)
+              .proto-posted
+                = p.created_at.strftime("%b %d")
