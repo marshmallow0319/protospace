@@ -5,9 +5,9 @@
         = f.text_field :title, autofocus: true, placeholder: "Title", class: "proto-new-title"
     .row
       .col-md-12
-        .cover-image-upload
+        .cover-image-upload#js-main
           = f.fields_for :photos do |photo|
-            = photo.file_field :content
+            = photo.file_field :content, id: "js-main"
             = photo.hidden_field :status, value: :main
       .col-md-12
         %ul.proto-sub-list.list-group
