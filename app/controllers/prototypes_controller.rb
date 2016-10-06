@@ -30,13 +30,7 @@ class PrototypesController < ApplicationController
 
   def edit
     @subphotos = @prototype.photos.sub
-    #count = 2 - @subphotos.count
-    #サブ画像がいなければ下記の処理
     (2 - @subphotos.count).times { @subphotos << @prototype.photos.build(status: "sub") }
-    # while count == 2
-    #   @prototype.photos.build(staus: "sub")
-    #   count += 1
-    # end
   end
 
   def update
