@@ -29,6 +29,8 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @subphotos = @prototype.photos.sub
+    (2 - @subphotos.count).times { @subphotos << @prototype.photos.build(status: "sub") }
   end
 
   def update
