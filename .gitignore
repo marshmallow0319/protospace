@@ -14,3 +14,5 @@
 
 # Ignore upload image file
 /public/uploads/
+
+/.env
