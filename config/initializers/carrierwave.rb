@@ -9,10 +9,14 @@ CarrierWave.configure do |config|
 
     case Rails.env
     when 'development'
+        config.strage = :fog
         config.fog_directory  = 'protospace-photo'
         config.asset_host = 'https://s3.amazonaws.com/protospace-photo'
     when 'production'
+        config.strage = :fog
         config.fog_directory  = 'protospace-photo'
         config.asset_host = 'https://s3.amazonaws.com/protospace-photo'
+    when 'test'
+        config.strage = :file
     end
 end
