@@ -46,6 +46,7 @@ group :development, :test do
   gem "rspec-rails"         #Rails 専用の機能を追加するRSpecのラッパーライブラリ
   gem "factory_girl_rails"  #テストデータを作成する
   gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
+  gem 'pry-rails'
 
 end
 
@@ -57,7 +58,6 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem "erb2haml"
-  gem 'pry-rails'
 end
 
 group :test do
