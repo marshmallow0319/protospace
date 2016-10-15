@@ -1,14 +1,14 @@
+require 'faker'
+
 FactoryGirl.define do
-
   factory :user do
-    username              "hogeo"
-    email                 "hogeo@gmail.com"
-    password              "00000000"
+    username Faker::Name.name
+    email Faker::Internet.email
+    password "00000000"
     password_confirmation "00000000"
-    member                "hoge's"
-    profile               "hogeodesu"
-    works                 "hogehogesuru"
-    avatar                "hogeo.jpg"
+    member Faker::Company.name
+    profile Faker::Company.catch_phrase
+    works Faker::Name.title
+    avatar Faker::Avatar.image
   end
-
 end
