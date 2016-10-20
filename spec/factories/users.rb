@@ -2,6 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :user do
+    id Faker::Number.digit
     username Faker::Name.name
     email Faker::Internet.email
     password "00000000"
