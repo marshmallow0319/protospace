@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show, :update]
 
-  def index
-  end
-
   def edit
   end
 
