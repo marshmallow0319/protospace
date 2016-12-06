@@ -59,3 +59,9 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+# EC2サーバーのIP、EC2サーバーにログインするユーザー名、サーバーのロールを記述
+server '52.68.248.173', user: 'guimauve', roles: %w{app db web}
+
+#デプロイするサーバにsshログインする鍵の情報を記述
+set :ssh_options, keys: '~/.ssh/first_aws_rsa'
