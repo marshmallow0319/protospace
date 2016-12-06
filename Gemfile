@@ -39,6 +39,10 @@ gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'fog'
 
+group :production, :staging do
+  gem 'unicorn'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -47,6 +51,10 @@ group :development, :test do
   gem "factory_girl_rails"  #テストデータを作成する
   gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
   gem 'pry-rails'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 
 end
 
